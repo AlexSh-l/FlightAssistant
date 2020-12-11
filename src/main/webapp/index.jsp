@@ -8,9 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>Registration</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
-
+<body class="body_Registration">
+<header>
+    <br>!!!Welcome to FightAssistant!!!
+</header>
+    <div class="registrationBox">
+        <br>Register or sign in
+        <input type="text" name="login">
+        <input type="text" name="password">
+        <button>Enter</button>
+    </div>
+    <footer>
+        @Copyright 2020. All rights reserved.
+    </footer>
 </body>
 </html>
