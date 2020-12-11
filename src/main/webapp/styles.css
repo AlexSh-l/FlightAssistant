@@ -1,0 +1,74 @@
+@charset "utf-8";
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    grid-area: h;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    height: available;
+    text-decoration: none;
+    font: bold 35px Arial;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.body_Registration
+{
+    display: grid;
+    grid-template-areas:
+		". h ."
+		". c ."
+		"f f f";
+    background-color: lightblue;
+}
+
+.registrationBox
+{
+    grid-area: c;
+    background-color: white;
+    min-width: 150px;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font: bold 25px Arial;
+}
+
+input
+{
+    min-width: 100px;
+    min-height: 50px;
+    font: bold 20px Arial;
+    text-decoration: none;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+button
+{
+    margin-top: 20px;
+    min-height: 50px;
+    font: bold 25px Arial;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+    align-self: center;
+    border-radius: 25px;
+    width: 120px;
+}
+
+footer
+{
+    grid-area: f;
+    background: rgba(192, 192, 192, 0.5);
+    text-align: left;
+    position: fixed;
+    height: 36px;
+    width: 100%;
+    bottom: 0;
+}
