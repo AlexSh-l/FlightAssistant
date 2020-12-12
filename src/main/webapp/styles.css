@@ -22,7 +22,7 @@ header{
     grid-template-areas:
 		". h ."
 		". c ."
-		"f f f";
+		". f .";
     background-color: lightblue;
 }
 
