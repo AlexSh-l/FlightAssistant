@@ -5,7 +5,6 @@
 }
 
 header{
-    grid-area: h;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -16,19 +15,11 @@ header{
     margin-bottom: 20px;
 }
 
-.body_Registration
-{
-    display: grid;
-    grid-template-areas:
-		". h ."
-		". c ."
-		". f .";
+.body_Registration {
     background-color: lightblue;
 }
 
-.registrationBox
-{
-    grid-area: c;
+.registrationBox {
     background-color: white;
     min-width: 150px;
     min-height: 350px;
@@ -39,8 +30,7 @@ header{
     font: bold 25px Arial;
 }
 
-input
-{
+input {
     min-width: 100px;
     min-height: 50px;
     font: bold 20px Arial;
@@ -49,8 +39,7 @@ input
     margin-top: 10px;
 }
 
-button
-{
+button {
     margin-top: 20px;
     min-height: 50px;
     font: bold 25px Arial;
@@ -62,9 +51,7 @@ button
     width: 120px;
 }
 
-footer
-{
-    grid-area: f;
+footer {
     background: rgba(192, 192, 192, 0.5);
     text-align: left;
     position: fixed;
@@ -72,3 +59,4 @@ footer
     width: 100%;
     bottom: 0;
 }
+
