@@ -1,5 +1,6 @@
 package by.alx.flightassist.controller;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,19 +16,25 @@ public class Controller extends HttpServlet {
         super();
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
-        //request.setAttribute("name", "Tom");
-        //request.setAttribute("age", 34);
-        //String login = request.getParameter("login");
-        //String password = request.getParameter("password");
-        //getServletContext().getRequestDispatcher("/basic.jsp").forward(request, response);
         User user = new User();
         user.login = request.getParameter("login");
         user.password = request.getParameter("password");
         Logic logic = new Logic(user);
-        if(logic.LoginCheck()){
+        if(logic.LoginCheck() != null){
             //Open flights.jsp
+            //role defined pages
+        }
+        else{
+            user.role = "client";
+            if(logic.Register()){
+                //Open flights.jsp
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/flights.jsp");
+                requestDispatcher.forward(request, response);
+            }
+            else{
+                RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
+                requestDispatcher.forward(request, response);
+            }
         }
     }
 }

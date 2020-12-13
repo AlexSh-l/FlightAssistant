@@ -49,6 +49,7 @@ button {
     align-self: center;
     border-radius: 25px;
     width: 120px;
+    outline: none;
 }
 
 footer {

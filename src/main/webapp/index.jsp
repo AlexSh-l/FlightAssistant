@@ -21,7 +21,7 @@
     <div class="registrationBox">
         <br>Register or sign in
         <input type="text" name="login">
-        <input type="text" name="password">
+        <input type="password" name="password">
         <button>Enter</button>
     </div>
 </form>

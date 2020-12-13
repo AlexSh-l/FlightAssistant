@@ -9,8 +9,17 @@
 <html>
 <head>
     <title>Flights</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body>
+<body class="body_Registration">
+<header>
+    <br>Flights
+</header>
+    <div class="registrationBox">
 
+    </div>
+<footer>
+    @Copyright 2020. All rights reserved.
+</footer>
 </body>
 </html>
