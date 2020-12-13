@@ -5,7 +5,7 @@ import by.alx.flightassist.bean.User;
 import java.sql.ResultSet;
 
 public abstract class UserDAO {
-    public ResultSet signIn(User user){
+    public User signIn(User user){
         return null;
     }
     public int registration(User user) {

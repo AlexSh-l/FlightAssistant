@@ -10,7 +10,6 @@ import java.io.IOException;
 import by.alx.flightassist.logic.Logic;
 import by.alx.flightassist.bean.User;
 
-
 public class Controller extends HttpServlet {
     public Controller(){
         super();
@@ -23,6 +22,8 @@ public class Controller extends HttpServlet {
         if(logic.LoginCheck() != null){
             //Open flights.jsp
             //role defined pages
+            RequestDispatcher requestDispatcher = request.getRequestDispatcher("/flights.jsp");
+            requestDispatcher.forward(request, response);
         }
         else{
             user.role = "client";

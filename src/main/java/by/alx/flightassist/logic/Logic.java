@@ -4,16 +4,12 @@ import by.alx.flightassist.controller.Controller;
 import by.alx.flightassist.bean.User;
 import by.alx.flightassist.dao.DAOFactory;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Logic {
     //service
     public Logic(User user){
         super();
         login = user.login;
         password = user.password;
-        //LoginCheck();
     }
     protected String login;
     protected String password;
@@ -23,17 +19,12 @@ public class Logic {
         User user = new User();
         user.login = login;
         user.password = password;
-        ResultSet resultSet = factory.getSqlUserDAO().signIn(user);
-        if (resultSet == null) {
+        User u = factory.getSqlUserDAO().signIn(user);
+        if (u == null) {
             return null;
         }
         else {
-            try {
-                user.role = resultSet.getString(4);
-            } catch (SQLException e) {
-                //e.printStackTrace();
-            }
-            return user;
+            return u;
         }
     }
     public boolean Register(){
@@ -41,12 +32,13 @@ public class Logic {
         User user = new User();
         user.login = login;
         user.password = password;
+        user.role = "client";
         int i = factory.getSqlUserDAO().registration(user);
         if(i == 0){
-            return true;
+            return false;
         }
         else{
-            return false;
+            return true;
         }
     }
 }
