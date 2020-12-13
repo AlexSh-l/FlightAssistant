@@ -3,6 +3,9 @@ package by.alx.flightassist.logic;
 import by.alx.flightassist.controller.Controller;
 import by.alx.flightassist.bean.User;
 import by.alx.flightassist.dao.DAOFactory;
+import by.alx.flightassist.bean.Flight;
+
+import java.util.ArrayList;
 
 public class Logic {
     //service
@@ -40,5 +43,10 @@ public class Logic {
         else{
             return true;
         }
+
+    }
+    public void FlightOut(){
+        DAOFactory factory = new DAOFactory();
+        ArrayList<Flight>list = factory.getSqlFlightDAO().FlightPrint();
     }
 }
