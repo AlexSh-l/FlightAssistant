@@ -9,28 +9,29 @@ import java.sql.*;
 
 public class SQLUserDAO extends UserDAO {
     @Override
-    public void signIn(String login, String password){
+    public ResultSet signIn(User user){
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb?serverTimezone=false&useSSL=false", "root", "");
             Statement statement = connection.createStatement();
-            //int rows = statement.executeUpdate("SELECT (login, password) FROM userbd(login, password)");
-            ResultSet resultSet = statement.executeQuery("SELECT (login, password) FROM userbd(login, password)");
+            ResultSet resultSet = statement.executeQuery("SELECT (user.login, user.password) FROM userbd(login, password)");
             connection.close();
+            return resultSet;
         }
         catch (SQLException e) {
-
+            return null;
         }
     }
     @Override
-    public void registration(String login, String password){
+    public int registration(User user){
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb?serverTimezone=false&useSSL=false", "root", "");
             Statement statement = connection.createStatement();
-            int rows = statement.executeUpdate("INSERT userbd(login, password, role) VALUES (login, password, client)");
+            int row = statement.executeUpdate("INSERT userbd(login, password, role) VALUES (user.login, user.password, client)");
             connection.close();
+            return row;
         }
         catch (SQLException e) {
-
+            return 0;
         }
 
     }
