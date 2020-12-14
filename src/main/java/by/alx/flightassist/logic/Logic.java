@@ -11,8 +11,8 @@ public class Logic {
     //service
     public Logic(User user){
         super();
-        login = user.login;
-        password = user.password;
+        login = user.getLogin();
+        password = user.getPassword();
     }
     protected String login;
     protected String password;
@@ -20,8 +20,8 @@ public class Logic {
     public User LoginCheck(){
         DAOFactory factory = new DAOFactory();
         User user = new User();
-        user.login = login;
-        user.password = password;
+        user.setLogin(login);
+        user.setPassword(password);
         User u = factory.getSqlUserDAO().signIn(user);
         if (u == null) {
             return null;
@@ -33,9 +33,9 @@ public class Logic {
     public boolean Register(){
         DAOFactory factory = new DAOFactory();
         User user = new User();
-        user.login = login;
-        user.password = password;
-        user.role = "client";
+        user.setLogin(login);
+        user.setPassword(password);
+        user.setRole("client");
         int i = factory.getSqlUserDAO().registration(user);
         if(i == 0){
             return false;
@@ -45,8 +45,8 @@ public class Logic {
         }
 
     }
-    public void FlightOut(){
+    public ArrayList<Flight> FlightOut(){
         DAOFactory factory = new DAOFactory();
-        ArrayList<Flight>list = factory.getSqlFlightDAO().FlightPrint();
+        return factory.getSqlFlightDAO().FlightPrint();
     }
 }

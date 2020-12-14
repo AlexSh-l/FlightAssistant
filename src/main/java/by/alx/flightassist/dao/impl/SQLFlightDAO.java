@@ -18,17 +18,18 @@ public class SQLFlightDAO extends FlightDAO {
             String driverName = "com.mysql.cj.jdbc.Driver";
             Class.forName(driverName).getDeclaredConstructor().newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb?serverTimezone=Europe/Moscow&useSSL=false", "root", "");
-            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM userbd")) {
+            try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM flights")) {
                 ResultSet resultSet = statement.executeQuery();
                 while(resultSet.next()) {
                     Flight flight = new Flight();
-                    flight.destination = resultSet.getString(2);
-                    flight.start = resultSet.getString(3);
-                    flight.start_time = resultSet.getDate(4);
-                    flight.end_time = resultSet.getDate(5);
-                    flight.flightnum = resultSet.getString(6);
-                    flight.planetype = resultSet.getString(7);
-                    flight.airport = resultSet.getString(8);
+                    flight.setDestination(resultSet.getString(2));
+                    flight.setStart(resultSet.getString(3));
+                    flight.setStart_time(resultSet.getTime(4));
+                    //flight.setStart_time(resultSet.getDate(4));
+                    flight.setEnd_time(resultSet.getTime(5));
+                    flight.setFlightnum(resultSet.getString(6));
+                    flight.setPlanetype(resultSet.getString(7));
+                    flight.setAirport(resultSet.getString(8));
                     list.add(flight);
                 }
                 statement.close();

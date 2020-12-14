@@ -17,13 +17,13 @@ public class SQLUserDAO extends UserDAO {
             Class.forName(driverName).getDeclaredConstructor().newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb?serverTimezone=Europe/Moscow&useSSL=false", "root", "");
             try(PreparedStatement statement = connection.prepareStatement("SELECT * FROM userbd WHERE login = ?")) {
-                statement.setString(1, user.login);
+                statement.setString(1, user.getLogin());
                 ResultSet resultSet = statement.executeQuery();
                 resultSet.next();
                 String pass = resultSet.getString(3);
-                if (!pass.equals(user.password))
+                if (!pass.equals(user.getPassword()))
                     return null;
-                user.role = resultSet.getString(4);
+                user.setRole(resultSet.getString(4));
                 statement.close();
                 connection.close();
                 return user;
@@ -56,9 +56,9 @@ public class SQLUserDAO extends UserDAO {
             Class.forName(driverName).getDeclaredConstructor().newInstance();
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost/mydb?serverTimezone=Europe/Moscow&useSSL=false", "root", "");
             try(PreparedStatement statement = connection.prepareStatement("INSERT userbd (login, password, userrole) VALUES (?, ?, ?)")) {
-                statement.setString(1, user.login);
-                statement.setString(2, user.password);
-                statement.setString(3, user.role);
+                statement.setString(1, user.getLogin());
+                statement.setString(2, user.getPassword());
+                statement.setString(3, user.getRole());
                 int row = statement.executeUpdate();
                 statement.close();
                 connection.close();
