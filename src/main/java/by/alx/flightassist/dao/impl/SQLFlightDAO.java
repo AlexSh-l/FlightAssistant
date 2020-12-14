@@ -25,7 +25,6 @@ public class SQLFlightDAO extends FlightDAO {
                     flight.setDestination(resultSet.getString(2));
                     flight.setStart(resultSet.getString(3));
                     flight.setStart_time(resultSet.getTime(4));
-                    //flight.setStart_time(resultSet.getDate(4));
                     flight.setEnd_time(resultSet.getTime(5));
                     flight.setFlightnum(resultSet.getString(6));
                     flight.setPlanetype(resultSet.getString(7));

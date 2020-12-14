@@ -1,6 +1,5 @@
 package by.alx.flightassist.logic;
 
-import by.alx.flightassist.controller.Controller;
 import by.alx.flightassist.bean.User;
 import by.alx.flightassist.dao.DAOFactory;
 import by.alx.flightassist.bean.Flight;
@@ -43,7 +42,6 @@ public class Logic {
         else{
             return true;
         }
-
     }
     public ArrayList<Flight> FlightOut(){
         DAOFactory factory = new DAOFactory();

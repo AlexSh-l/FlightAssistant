@@ -2,7 +2,6 @@ package by.alx.flightassist.controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -35,7 +34,9 @@ public class Controller extends HttpServlet {
             user.setRole("client");
             if (logic.Register()) {
                 //Open flights.jsp
+                ArrayList<Flight> list = logic.FlightOut();
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/flights.jsp");
+                request.setAttribute("flights", list);
                 requestDispatcher.forward(request, response);
             } else {
                 RequestDispatcher requestDispatcher = request.getRequestDispatcher("/index.jsp");
